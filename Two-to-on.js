@@ -2,12 +2,14 @@
 exports.__esModule = true;
 exports.twoToOne = void 0;
 var twoToOne = function (s1, s2) {
-    var concatenatedString = s1.concat(s2);
-    console.log(concatenatedString);
-    var stringArray = concatenatedString.split('').sort();
-    var findDuplicates = stringArray.filter(function (item, index) { return stringArray.indexOf(item) != index; });
-    console.log(stringArray);
-    console.log(findDuplicates);
-    // return total;
+    var onlyUnique = function (value, index, self) {
+        return self.indexOf(value) === index;
+    };
+    console.log((s1 + s2).split('').filter(onlyUnique).sort());
+    console.log((s1 + s2).split('').filter(onlyUnique).sort().join(''));
+    // console.log((s1 + s2).split(''));
+    return (s1 + s2).split('').filter(function (value, index, self) {
+        return self.indexOf(value) === index;
+    }).sort().join('');
 };
 exports.twoToOne = twoToOne;
